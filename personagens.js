@@ -23,7 +23,7 @@ const personagens = [
         nome: "Maria Clara",
         apelido: "Maria",
         bio: "Ela é jovem e cansada e quer ser gótica",
-        imagem: "images/maria.png",
+        imagem: "images/Maria.png",
         top: "70%",
         left: "10%",
         largura: "120px"
