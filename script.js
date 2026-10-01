@@ -1,17 +1,42 @@
 const container = document.getElementById("personagens");
 const telaAbertura = document.getElementById("tela-abertura");
 const btnIniciar = document.getElementById("btn-iniciar");
+const musicaFundo = document.getElementById("musica-fundo");
+const btnSom = document.getElementById("btn-som");
+
+let estaTocando = false;
 
 // Evento do botão de início
 btnIniciar.addEventListener("click", () => {
-    // Faz a tela de abertura sumir com animação
+    musicaFundo.volume = 0.5; // Volume a 50%
+    musicaFundo.play().then(() => {
+        estaTocando = true;
+        btnSom.innerText = "🔊";
+    }).catch(error => {
+        console.log("Autoplay bloqueado pelo navegador.");
+    });
+
+    // Revela o botão de som e esconde a abertura
+    btnSom.classList.remove("hidden");
     telaAbertura.classList.add("fade-out");
     
-    // Mostra a área dos personagens após a transição
     setTimeout(() => {
         telaAbertura.style.display = "none";
         container.classList.remove("hidden");
-    }, 800); // Tempo igual ao da transição do CSS (0.8s)
+    }, 800);
+});
+
+// Evento do botão de Ligar/Desligar som
+btnSom.addEventListener("click", () => {
+    if (estaTocando) {
+        musicaFundo.pause();
+        btnSom.innerText = "🔇";
+        estaTocando = false;
+    } else {
+        musicaFundo.play();
+        btnSom.innerText = "🔊";
+        estaTocando = true;
+    }
 });
 
 // Renderização dos personagens
