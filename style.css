@@ -140,3 +140,24 @@
     opacity: 0;
     pointer-events: none;
 }
+
+/* --- BOTÃO DE SOM --- */
+#btn-som {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #121319;
+    border: 3px solid #ff007f;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px #000;
+    z-index: 20;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+#btn-som:hover {
+    transform: scale(1.1);
+    background-color: #ff007f;
+}
