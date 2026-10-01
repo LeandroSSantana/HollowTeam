@@ -18,11 +18,14 @@
     <!-- Tela de Abertura / Intro -->
     <div id="tela-abertura">
         <div class="intro-conteudo">
-            <h1>Halloween da Turma</h1>
-            <h2>("Que deveria estartrabalhando")</h2>
+            <h1>Halloween da Galera</h1>
+            <h2>(Que deveria estar trabalhando)</h2>
             <button id="btn-iniciar">PRESS START</button>
         </div>
     </div>
+
+    <!-- Botão de Som (Fica escondido na abertura e aparece depois) -->
+    <button id="btn-som" class="hidden" title="Ligar/Desligar Música">🔊</button>
 
     <!-- Os personagens serão inseridos aqui pelo JavaScript -->
     <div id="personagens" class="hidden"></div>
@@ -32,6 +35,9 @@
         <h3 id="info-nome">Nome</h3>
         <p id="info-bio">Descrição da pessoa...</p>
     </div>
+
+    <!-- Elemento de Áudio -->
+    <audio id="musica-fundo" src="audio/halloween.mp3" preload="auto" loop></audio>
 
     <!-- JavaScript -->
     <script src="personagens.js"></script>
