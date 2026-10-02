@@ -74,3 +74,18 @@ function mostrarInfo(nome, bio) {
 
     caixa.classList.remove("hidden");
 }
+
+// Exemplo de como fechar a caixa ao clicar no fundo/tela
+document.addEventListener('click', function(evento) {
+    const caixaDescricao = document.getElementById('caixa-descricao');
+    
+    // Verifica se o clique NÃO foi dentro da caixa de descrição 
+    // e NEM em cima de um personagem (ou avatar/nome-tag)
+    const clicouNaCaixa = caixaDescricao.contains(evento.target);
+    const clicouNoPersonagem = evento.target.closest('.personagem');
+    
+    // Se não clicou nem na caixa nem num personagem, esconde a descrição
+    if (!clicouNaCaixa && !clicouNoPersonagem) {
+        caixaDescricao.classList.add('hidden');
+    }
+});
