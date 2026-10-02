@@ -7,12 +7,12 @@ body {
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('images/FundoHalloween2.png');
-    background-size: cover;
-    background-position: center;
+    background-image: url('images/FundoHalloween2.png'); /* Puxa sua imagem da pasta images */
+    background-size: cover;       /* Estica a imagem cobrindo toda a janela */
+    background-position: center;  /* Centraliza a imagem */
     background-repeat: no-repeat;
     font-family: 'Press Start 2P', monospace;
-    overflow: hidden; /* Desktop fica fixo sem rolar */
+    overflow: hidden;             /* Remove barras de rolagem indesejadas no desktop */
 }
 
 /* Container principal dos personagens */
@@ -32,12 +32,12 @@ body {
 }
 
 .personagem:hover {
-    transform: translate(-50%, -50%) scale(1.25);
+    transform: translate(-50%, -50%) scale(1.25); /* Dá um zoom ao passar o mouse */
 }
 
 .avatar {
     font-size: 2.5rem;
-    filter: drop-shadow(3px 3px 0px #000);
+    filter: drop-shadow(3px 3px 0px #000); /* Sombra estilo jogo retrô */
 }
 
 .avatar img {
@@ -97,7 +97,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #0b0c10;
+    background-color: #0b0c10; /* Fundo escuro retrô */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,24 +176,24 @@ body {
     background-color: #ff6600f3;
 }
 
-/* --- MEDIA QUERY PARA CELULARES (ROLAGEM HORIZONTAL) --- */
+/* --- MEDIA QUERY PARA CELULARES (ROLAGEM HORIZONTAL MANTENDO O FUNDO INTEIRO) --- */
 @media screen and (max-width: 768px) {
     body {
-        overflow-x: auto;   /* Permite rolar para os lados */
-        overflow-y: hidden;  /* Trava a rolagem vertical */
-        width: 180vw;        /* Expande o documento horizontalmente para dar espaço ao mapa */
+        overflow-x: auto;   /* Permite rolar a página apenas para os lados */
+        overflow-y: hidden;  /* Trava o scroll vertical */
         height: 100vh;
-        background-size: auto 100vh; /* Mantém a altura da imagem esticada na tela e permite deslizar para os lados */
-        background-repeat: repeat-x;
+        /* Mantém o fundo fixo e cobrindo perfeitamente a tela inteira sem distorcer */
+        background-attachment: fixed;
+        background-size: cover;
     }
 
     #personagens {
         position: relative;
-        width: 180vw; /* Acompanha a largura expandida para manter os personagens nas posições exatas de porcentagem */
+        width: 180vw;        /* Alarga apenas o espaço onde os personagens estão distribuídos */
         height: 100vh;
     }
 
-    /* Preserva exatamente as coordenadas top/left do PC */
+    /* Preserva exatamente as coordenadas top/left originais do PC */
     .personagem {
         position: absolute !important;
         transform: translate(-50%, -50%);
@@ -203,7 +203,7 @@ body {
         transform: translate(-50%, -50%) scale(1.1) !important;
     }
 
-    /* Caixa de bio fica fixa flutuando na tela do celular para acompanhar a leitura */
+    /* Caixa de descrição fica travada e fixa na tela do celular para facilitar a leitura */
     #caixa-descricao {
         position: fixed;
         left: 10px;
