@@ -15,6 +15,13 @@ body {
     overflow: hidden;             /* Remove barras de rolagem indesejadas */
 }
 
+/* Container principal dos personagens */
+#personagens {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
 /* Estilo de cada personagem posicionado na tela */
 .personagem {
     position: absolute;
@@ -172,10 +179,10 @@ body {
 /* --- MEDIA QUERY PARA CELULARES E TELAS MENORES (Até 768px) --- */
 @media screen and (max-width: 768px) {
     body {
-        overflow: auto; 
+        overflow-y: auto; /* Permite rolar a página no celular */
         height: auto;
         min-height: 100vh;
-        background-attachment: fixed;
+        background-attachment: scroll;
     }
 
     #personagens {
@@ -183,11 +190,10 @@ body {
         width: 100%;
         height: auto;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column; /* Organiza um abaixo do outro em coluna */
         align-items: center;
-        gap: 25px;
-        padding: 80px 20px 120px 20px;
+        gap: 60px; /* Espaço confortável entre um personagem e outro */
+        padding: 90px 20px 140px 20px; /* Respiro em cima e embaixo */
         box-sizing: border-box;
     }
 
@@ -196,7 +202,7 @@ body {
         top: auto !important;
         left: auto !important;
         transform: none !important;
-        margin: 10px;
+        margin: 0;
     }
 
     .personagem:hover {
