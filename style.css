@@ -8,7 +8,7 @@ body {
     width: 100vw;
     height: 100vh;
     background-image: url('images/FundoHalloween2.png'); /* Puxa sua imagem da pasta images */
-    background-size: cover;       /* Estica a imagem cobrindo toda a janela */
+    background-size: cover;       /* Estica a imagem cobrindo toda a janela no desktop */
     background-position: center;  /* Centraliza a imagem */
     background-repeat: no-repeat;
     font-family: 'Press Start 2P', monospace;
@@ -176,24 +176,26 @@ body {
     background-color: #ff6600f3;
 }
 
-/* --- MEDIA QUERY PARA CELULARES (ROLAGEM HORIZONTAL MANTENDO O FUNDO INTEIRO) --- */
+/* --- MEDIA QUERY PARA CELULARES (FUNDO INTEIRO SEM CORTAR + SCROLL HORIZONTAL) --- */
 @media screen and (max-width: 768px) {
     body {
-        overflow-x: auto;   /* Permite rolar a página apenas para os lados */
+        overflow-x: auto;   /* Permite rolar para os lados */
         overflow-y: hidden;  /* Trava o scroll vertical */
         height: 100vh;
-        /* Mantém o fundo fixo e cobrindo perfeitamente a tela inteira sem distorcer */
-        background-attachment: fixed;
-        background-size: cover;
+        /* Força a imagem a ter a altura exata da tela e expande a largura proporcionalmente, sem cortes */
+        background-size: auto 100vh; 
+        background-position: left center; /* Começa a exibir a imagem desde o início à esquerda */
+        background-repeat: no-repeat;
     }
 
     #personagens {
         position: relative;
-        width: 180vw;        /* Alarga apenas o espaço onde os personagens estão distribuídos */
+        /* Deixamos a largura flexível ou ajustada para acompanhar o tamanho real proporcional da imagem no celular */
+        width: 177.77vh; /* Proporção padrão 16:9 (ajuste se sua imagem for mais larga, ex: 200vh) */
         height: 100vh;
     }
 
-    /* Preserva exatamente as coordenadas top/left originais do PC */
+    /* Mantém as posições originais absolutas em porcentagem baseadas nessa largura proporcional */
     .personagem {
         position: absolute !important;
         transform: translate(-50%, -50%);
@@ -203,7 +205,7 @@ body {
         transform: translate(-50%, -50%) scale(1.1) !important;
     }
 
-    /* Caixa de descrição fica travada e fixa na tela do celular para facilitar a leitura */
+    /* Caixa de descrição fica fixa e flutuante na tela para acompanhar a leitura */
     #caixa-descricao {
         position: fixed;
         left: 10px;
