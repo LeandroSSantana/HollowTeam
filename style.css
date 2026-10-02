@@ -1,21 +1,20 @@
 /* Importando a fonte retrô */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-/* A foto ocupa 100% da tela como fundo absoluto */
+/* Configuração padrão para Computador */
 body {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url('images/FundoHalloween2.png'); /* Puxa sua imagem da pasta images */
-    background-size: cover;       /* Estica a imagem cobrindo toda a janela no desktop */
-    background-position: center;  /* Centraliza a imagem */
+    background-image: url('images/FundoHalloween2.png');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     font-family: 'Press Start 2P', monospace;
-    overflow: hidden;             /* Remove barras de rolagem indesejadas no desktop */
+    overflow: hidden;
 }
 
-/* Container principal dos personagens */
 #personagens {
     position: relative;
     width: 100vw;
@@ -32,12 +31,12 @@ body {
 }
 
 .personagem:hover {
-    transform: translate(-50%, -50%) scale(1.25); /* Dá um zoom ao passar o mouse */
+    transform: translate(-50%, -50%) scale(1.25);
 }
 
 .avatar {
     font-size: 2.5rem;
-    filter: drop-shadow(3px 3px 0px #000); /* Sombra estilo jogo retrô */
+    filter: drop-shadow(3px 3px 0px #000);
 }
 
 .avatar img {
@@ -57,7 +56,7 @@ body {
     box-shadow: 2px 2px 0px #000;
 }
 
-/* Caixa de descrição flutuante no canto da tela */
+/* Caixa de descrição flutuante */
 #caixa-descricao {
     position: fixed;
     bottom: 20px;
@@ -85,7 +84,6 @@ body {
     margin: 0;
 }
 
-/* Classe para esconder elementos */
 .hidden {
     display: none !important;
 }
@@ -97,7 +95,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #0b0c10; /* Fundo escuro retrô */
+    background-color: #0b0c10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -123,7 +121,6 @@ body {
     margin-bottom: 40px;
 }
 
-/* Botão piscando estilo arcade */
 #btn-iniciar {
     font-family: 'Press Start 2P', monospace;
     font-size: 0.9rem;
@@ -149,7 +146,6 @@ body {
     51%, 100% { opacity: 0.3; }
 }
 
-/* Classe para sumir com a abertura suavemente */
 .fade-out {
     opacity: 0;
     pointer-events: none;
@@ -176,26 +172,25 @@ body {
     background-color: #ff6600f3;
 }
 
-/* --- MEDIA QUERY PARA CELULARES (FUNDO INTEIRO SEM CORTAR + SCROLL HORIZONTAL) --- */
-@media screen and (max-width: 768px) {
+/* --- MEDIA QUERY APENAS PARA CELULAR EM PÉ (MODO RETRATO) --- */
+@media screen and (max-width: 768px) and (orientation: portrait) {
     body {
-        overflow-x: auto;   /* Permite rolar para os lados */
+        overflow-x: auto;   /* Ativa a rolagem horizontal só quando em pé */
         overflow-y: hidden;  /* Trava o scroll vertical */
         height: 100vh;
-        /* Força a imagem a ter a altura exata da tela e expande a largura proporcionalmente, sem cortes */
-        background-size: auto 100vh; 
-        background-position: left center; /* Começa a exibir a imagem desde o início à esquerda */
+        width: 100vw;
+        /* Usa a proporção exata de 1376x768 baseada na altura da tela */
+        background-size: calc(100vh * (1376 / 768)) 100vh;
+        background-position: left center;
         background-repeat: no-repeat;
     }
 
     #personagens {
         position: relative;
-        /* Deixamos a largura flexível ou ajustada para acompanhar o tamanho real proporcional da imagem no celular */
-        width: 177.77vh; /* Proporção padrão 16:9 (ajuste se sua imagem for mais larga, ex: 200vh) */
+        width: calc(100vh * (1376 / 768)); /* Mantém a proporção exata para alinhar os personagens */
         height: 100vh;
     }
 
-    /* Mantém as posições originais absolutas em porcentagem baseadas nessa largura proporcional */
     .personagem {
         position: absolute !important;
         transform: translate(-50%, -50%);
@@ -205,7 +200,6 @@ body {
         transform: translate(-50%, -50%) scale(1.1) !important;
     }
 
-    /* Caixa de descrição fica fixa e flutuante na tela para acompanhar a leitura */
     #caixa-descricao {
         position: fixed;
         left: 10px;
