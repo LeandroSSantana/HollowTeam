@@ -57,6 +57,15 @@ const personagens = [
         top: "25%",
         left: "10%",
         largura: "80px"
-    }
+    },
 
+    {
+        nome:"Luandra Carmone",
+        apelido: "Luandra",
+        bio: "Salve cachorro! A braveza em pessoa. E o filho dela é uma gracinha",
+        imagem: "images/Luandra.png",
+        top: "40%",
+        left: "58%",
+        largura: "80px"
+    }
 ];
