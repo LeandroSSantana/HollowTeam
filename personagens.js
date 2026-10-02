@@ -47,6 +47,16 @@ const personagens = [
         top: "75%",
         left: "58%",
         largura: "80px"
+    },
+
+    {
+        nome:"Iago Gleison",
+        apelido: "Iago",
+        bio: "O Nosso Rodrigo Hilbert, ele pedala, corre, pilota, conserta, edita, finaliza. Praticamente um misto completo",
+        imagem: "images/Iago.png",
+        top: "25%",
+        left: "10%",
+        largura: "80px"
     }
 
 ];
