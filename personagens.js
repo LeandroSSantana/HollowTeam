@@ -11,7 +11,7 @@ const personagens = [
 
     {
         nome: "Marcelo Lucas",
-        apelido: "Carco Marcelos",
+        apelido: "Marcelo",
         bio: "Ele tira umas fotos no trabalho e torce para o mirassol.",
         imagem: "images/marcelo.png",
         top: "55%",
